@@ -1,14 +1,14 @@
 module.exports = {
-    port: 5015,
+    port: 3000,
     database: {
-      host: 'localhost',
-      user: 'root',
+      host: '',
+      user: '',
       password: '',
-      database: 'test',
+      database: '',
     },
     jwtConfig: {
-      jwtSecret: 'keep_it_secret',
-      jwtExpiration: '1h',
+      jwtSecret: '',
+      jwtExpiration: '2h',
     },
   };
   
