@@ -2,12 +2,12 @@ module.exports = {
     port: 5015,
     database: {
       host: 'localhost',
-      user: 'user_name',
-      password: 'password',
-      database: 'database_name',
+      user: 'root',
+      password: '',
+      database: 'test',
     },
     jwtConfig: {
-      jwtSecret: 'your-secret-key',
+      jwtSecret: 'keep_it_secret',
       jwtExpiration: '1h',
     },
   };

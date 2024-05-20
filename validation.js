@@ -2,7 +2,6 @@
 const Joi = require('joi');
 
 const userSchema = Joi.object({
-  id: Joi.number().integer().required().allow(null),
   firstName: Joi.string().required(),
   lastName: Joi.string().required(),
   country: Joi.string().required(),

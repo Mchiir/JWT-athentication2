@@ -6,22 +6,47 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "http://localhost:$PORT"
     }
   ],
   "paths": {
-    "/Register": {
+    "/Register/{firstName}/{lastName}/{country}/{password}": {
       "post": {
         "summary": "Register and get token",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
+       "parameters":[
+        {
+          "name":"firstName",
+          "in":"path",
+          "required":true,
+          "schema":{
+            "type":"string"
           }
         },
+        {
+          "name":"lastName",
+          "in":"path",
+          "required":true,
+          "schema":{
+            "type":"string"
+          }
+        },
+        {
+          "name":"country",
+          "in":"path",
+          "required":true,
+          "schema":{
+            "type":"string"
+          }
+        },
+        {
+          "name":"password",
+          "in":"path",
+          "required":true,
+          "schema":{
+            "type":"string"
+          }
+        }
+       ],
         "responses": {
           "201": {
             "description": "Created",
@@ -43,12 +68,7 @@
               }
             }
           }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
+        }
       }
     },
     "/Delete_user": {
@@ -127,9 +147,34 @@
         ]
       }
     },
+    "/Delete_all": {
+      "delete": {
+        "summary": "Delete all users",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/update_data": {
       "put": {
-        "summary": "Change your names",
+        "summary": "Change login credendials object by Id",
         "requestBody": {
           "content": {
             "application/json": {
